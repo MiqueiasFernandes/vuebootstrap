@@ -1,5 +1,7 @@
 # vuebootstrap
 
+this project is a template for start projects with vue3 + bootstrap5, has dialog, tootip, popover, button, toast ... helper components
+
 ## Project setup
 ```
 npm install
