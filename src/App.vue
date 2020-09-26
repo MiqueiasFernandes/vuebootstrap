@@ -1,17 +1,90 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<HelloWorld msg="Welcome" />
+  <Dialog />
+  <Alert />
+  <Toast />
+
+
+<div class="btn-group">
+  <a href="#" class="btn btn-secondary active">Active link</a>
+  <a href="#" class="btn btn-secondary">Link</a>
+  <a href="#" class="btn btn-secondary">Link</a>
+</div>
+
+  <br />
+  <div class="container col-8">
+    <h3>hello world</h3>
+    <br />
+    <button @click="open" v-tooltip="'abrir alert'" v-btn="'warning'">
+      ok
+    </button>
+    <button class="btn btn-primary" @click="alr">alert</button>
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      v-tooltip="'tooltipo massa'"
+    >
+      Tooltip on top
+    </button>
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      v-popover="{ title: 'Titulo', content: 'OK', position: 'bottom' }"
+    >
+      Popover on top
+    </button>
+  </div>
+
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Welcome" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+  data: () => ({ cont: 0 }),
+  methods: {
+    open() {
+      for (var i = 1; i < 5; i++) {
+        this.$dialog(
+          {
+            title: i + "Ta funcionando direito",
+            text: "O diálogo esta funcionando direitinho?",
+            btns: [
+              {
+                label: "Sim",
+                action: "sim",
+                klass: "btn-primary",
+                close: true,
+              },
+              {
+                label: "Não",
+                action: "não",
+                klass: "btn-warning",
+                close: true,
+              },
+            ],
+          },
+          (action) => {
+            console.log(" Dialogo esta ok? " + action);
+          }
+        );
+      }
+    },
+
+    alr() {
+      this.$alert("Veja" + this.cont++, "mesage" + this.cont++, "ok", 'info');
+    },
+  },
+  mounted() {},
+};
 </script>
 
 <style>
