@@ -27,6 +27,16 @@ import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";
 // Toasts       OK
 // Tooltips     OK
 
+//usage: 
+// main.js      => createApp(App).use(Bootstrap).mount('#app')
+// App-Main.vue => `` <Dialog />
+//                    <Alert />
+//                    <Toast />  ``
+// this.$alert( ... ...  => call alert
+// this.$dialog( ... ... => show dialog
+// this.$toast( ... ...  => display toast
+
+
 import Alert from './Alert.component.vue'
 import Dialog from './Dialog.component.vue'
 import Toast from './Toast.component.vue'
@@ -81,6 +91,7 @@ export default {
             }
         })
         
+        //Badge
         app.directive('badge', {
             mounted(el, binding) {
                 var type = 'primary'
@@ -100,6 +111,7 @@ export default {
             }
         })
 
+        //Spiner
         app.directive('spiner', {
             mounted(el, binding) {
                 var t = 'border'
@@ -125,6 +137,7 @@ export default {
             }
         })
 
+        //Tooltip
         app.directive('tooltip', {
             mounted(el, binding) {
                 if (binding.value) {
@@ -145,6 +158,7 @@ export default {
 
         })
 
+        //Popover
         app.directive('popover', {
             mounted(el, binding) {
                 if (binding.value) {
@@ -165,20 +179,6 @@ export default {
                 new bootstrap.Popover(el);
             }
         })
-
-        // 3. inject some component options
-        //   Vue.mixin({
-        //       created: function () {
-        // some logic ...
-        //       }
-        //  ...
-        //////////// })
-
-        // 4. add an instance method
-        //  Vue.prototype.$myMethod = function (methodOptions) {
-        //console.log('// some logic ...' + methodOptions)
-        //     }
-
 
     }
 }
