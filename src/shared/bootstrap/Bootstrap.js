@@ -1,9 +1,11 @@
 
-// npm install bootstrap@next
+// npm install bootstrap@next bootstrap-icons
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.js"
 import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";
+
+import 'bootstrap-icons/bootstrap-icons.svg'
 
 // Alerts       OK
 // Badge        OK
@@ -28,6 +30,7 @@ import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";
 // Tooltips     OK
 
 //usage: 
+// cp node_modules/bootstrap-icons/bootstrap-icons.svg src/assets/
 // main.js      => createApp(App).use(Bootstrap).mount('#app')
 // App-Main.vue => `` <Dialog />
 //                    <Alert />
@@ -40,9 +43,13 @@ import bootstrap from "bootstrap/dist/js/bootstrap.bundle.js";
 import Alert from './Alert.component.vue'
 import Dialog from './Dialog.component.vue'
 import Toast from './Toast.component.vue'
+import Icon from './Icon.component.vue'
 
 export default {
     install(app) {
+
+        //Icon
+        app.component("Icon", Icon)
 
         //Alert
         app.component("Alert", Alert)
@@ -90,7 +97,7 @@ export default {
                 el.className += 'btn btn-' + type
             }
         })
-        
+
         //Badge
         app.directive('badge', {
             mounted(el, binding) {
@@ -126,12 +133,12 @@ export default {
                         if (binding.value.grow) {
                             t = 'grow'
                         }
-                        if(binding.value.sm) {
+                        if (binding.value.sm) {
                             type += ' spinner-' + t + '-sm'
                         }
                     }
                 }
-                el.className += 'spinner-' + t +  ' text-' + type
+                el.className += 'spinner-' + t + ' text-' + type
                 el.setAttribute('role', "status")
                 el.innerHtml = '<span class="sr-only">Loading...</span>'
             }

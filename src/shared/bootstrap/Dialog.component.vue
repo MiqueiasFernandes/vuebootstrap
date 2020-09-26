@@ -1,9 +1,15 @@
 <template>
-  <div class="modal fade" :id="dialog_id" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
+  <div :id="dialog_id" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div
+      class="modal-dialog"
+      :class="{ 'modal-dialog-centered': config && config.centered }"
+    >
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" v-if="config">{{ config.title }}</h5>
+          <h5 class="modal-title" v-if="config">
+            <Icon v-if="config.icon" :icon="config.icon"/>
+            {{ config.title }}
+            </h5>
           <button
             type="button"
             class="close"
@@ -97,6 +103,7 @@ export default {
         console.war("Dialog without config!");
         return null;
       }
+
       if (!config.cancel) {
         config.cancel = "cancel";
       }

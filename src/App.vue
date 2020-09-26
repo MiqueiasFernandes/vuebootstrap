@@ -51,7 +51,7 @@ export default {
   data: () => ({ cont: 0 }),
   methods: {
     open() {
-      for (var i = 1; i < 5; i++) {
+      for (var i = 1; i < 2; i++) {
         this.$dialog(
           {
             title: i + "Ta funcionando direito",
