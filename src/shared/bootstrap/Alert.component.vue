@@ -27,7 +27,12 @@
 import bootstrap from "bootstrap/dist/js/bootstrap.js";
 
 export default {
-  props: ["time"],
+  props: {
+    time: {
+      type: Number,
+      default: 0,
+    },
+  },
 
   created() {
     this.alert_queue = [];

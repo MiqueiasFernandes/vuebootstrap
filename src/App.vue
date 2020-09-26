@@ -1,8 +1,11 @@
 <template>
-<HelloWorld msg="Welcome" />
   <Dialog />
   <Alert />
   <Toast />
+
+  <br />
+  <div class="container col-8">
+<HelloWorld msg="Welcome" />
 
 
 <div class="btn-group">
@@ -10,9 +13,6 @@
   <a href="#" class="btn btn-secondary">Link</a>
   <a href="#" class="btn btn-secondary">Link</a>
 </div>
-
-  <br />
-  <div class="container col-8">
     <h3>hello world</h3>
     <br />
     <button @click="open" v-tooltip="'abrir alert'" v-btn="'warning'">
@@ -38,7 +38,6 @@
   </div>
 
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome" />
 </template>
 
 <script>
